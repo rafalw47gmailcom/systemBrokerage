@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+
+    <title>Tour operator 1 !</title>
+    <link href="../static/style.css" th:href="@{/style.css}" rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../../static/style.css">
+
+    <style>
+        #second_header{
+            background-image: url("holiday-finally.jpg");
+            background-size: 100%;
+            background-position: center;
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header id= "second_header" class="jumbotron text-left" style="margin-bottom:0" >
+    <div>
+        <h2 >Tour operator 1 </h2>
+    </div>
+</header>
+
+
+<br>
+<br>
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm" align="center"  >
+            <a  type="menu" th:href="@{'admin/reservation'}" >Rezerwacje</a>
+        </div>
+        <div class="col-sm" align="center"  >resources
+            <a type="menu" th:href="@{'/admin'}" >Baza wycieczek - strona główna</a>
+        </div>
+        <div class="col-sm" align="center"  >
+            <a  type="menu" th:href="@{'/admin/newOffer'}" >Dodaj nowa ofertę</a>
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+
+<h1 style="text-align: center">Szczegóły oferty</h1>
+<br>
+<br>
+<br>
+
+<div>
+    <table class="table table-striped table-hover" >
+        <thead>
+        <tr>
+            <th scope="col">Numer</th>
+
+            <!--
+                        <th scope="col"></th>
+            -->
+            <th scope="col">Tytul</th>
+            <th scope="col">Kraj</th>
+            <th scope="col">Miejsce przylotu</th>
+            <th scope="col">Data wyjazdu</th>
+            <th scope="col">Powrót przed</th>
+            <th scope="col">Cena</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody >
+        <tr>
+            <th th:text="${tour.getId()}"></th>
+<!--
+            <td> <img src= "favicon.ico" className="ui mini rounded image"  /></td>
+-->
+            <td th:text="${tour.getTitle()}"></td>
+            <td th:text="${tour.getCountry()}"></td>
+            <td th:text="${tour.getDestinationCity()}"></td>
+            <td th:text="${tour.dateFrom}"></td>
+            <td th:text="${tour.dateTo}"></td>
+            <td th:text="${tour.getPrice()}"></td>
+            <td>
+                <a type="submit"  th:href="@{'/admin/edit/' + ${tour.id}}" >Edytuj</a>
+
+            </td>
+            <td>
+                <a type="submit"  th:href="@{'/admin/delete/' + ${tour.id}}" >Usuń</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>

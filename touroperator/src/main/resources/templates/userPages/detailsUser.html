@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+
+    <title>Tour operator 1 !</title>
+    <link href="../static/style.css" th:href="@{/style.css}" rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../../static/style.css">
+
+    <style>
+        #second_header{
+            background-image: url("holiday-finally.jpg");
+            background-size: 100%;
+            background-position: center;
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+<body>
+<header id= "second_header" class="jumbotron text-left" style="margin-bottom:0" >
+    <div>
+        <h2 >
+            <a th:href="@{'/user'}" style="color: black"> Tour operator 1</a>
+           </h2>
+<!--
+ <h2 > <a th:href="@{'/user'}" style="color: #45a049"> Tour operator 1 </a></h2>
+-->
+    </div>
+</header>
+
+<br>
+<br>
+
+<h1 th:text="${tour.getTitle()}" style="text-align: center"></h1>
+<h3 style="text-align: center">Szczegóły oferty </h3>
+<br>
+<br>
+<br>
+
+<div>
+    <table class="table table-striped table-hover" >
+        <thead>
+        <tr>
+
+            <!--
+            <th style="color: #45a049" scope="col">Numer</th>
+                        <th style="color: #45a049" scope="col"></th>
+            -->
+            <th style="color: #45a049" scope="col">Tytul</th>
+            <th style="color: #45a049" scope="col">Kraj</th>
+            <th style="color: #45a049" scope="col">Miejsce przylotu</th>
+            <th style="color: #45a049" scope="col">Data wyjazdu</th>
+            <th style="color: #45a049" scope="col">Powrót przed</th>
+            <th style="color: #45a049" scope="col">Cena</th>
+            <th style="color: #45a049" scope="col"></th>
+            <th style="color: #45a049" scope="col"></th>
+            <th style="color: #45a049" scope="col"></th>
+        </tr>
+        </thead>
+        <tbody >
+        <tr>
+            <!--
+                 <th th:text="${tour.getId()}"></th>
+                        <td> <img src= "favicon.ico" className="ui mini rounded image"  /></td>
+            -->
+            <td th:text="${tour.getTitle()}"></td>
+            <td th:text="${tour.getCountry()}"></td>
+            <td th:text="${tour.getDestinationCity()}"></td>
+            <td th:text="${tour.dateFrom}"></td>
+            <td th:text="${tour.dateTo}"></td>
+            <td th:text="${tour.getPrice()}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<br>
+<br>
+
+<!--
+
+<div class="container">
+    <p style="text-align: center" class="border border-dark " >Hotel - dane</p>
+    <div class="row ">
+    <div class="col" align="center">
+        <div class="col-25">
+            <label >Nazwa</label>
+        </div>
+        <div class="col-75">
+            <label th:text="*{tour.hotel.getName()}"/>
+        </div>
+    </div>
+    <div class="col" align="center">
+        <div class="col-25">
+            <label >Mail: </label>
+        </div>
+        <div class="col-75">
+            <label th:text="*{tour.hotel.getEmail()}"/>
+        </div>
+    </div>
+</div>
+    <div class="row">
+        <div class="col" align="center">
+            <div class="col-25">
+                <label >Liczba gwiazdek</label>
+            </div>
+            <div class="col-75">
+                <label th:text="*{tour.hotel.getStars()}"/>
+            </div>
+        </div>
+        <div class="col" align="center">
+            <div class="col-25">
+                <label >Pokój</label>
+            </div>
+            <div class="col-75">
+                <label th:text="*{tour.hotel.getRoom()}"/>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col" align="center">
+            <div class="col-25">
+                <label >Adres</label>
+            </div>
+            <div class="col-75">
+                <label th:text="*{tour.hotel.getStars()}"/>
+            </div>
+        </div>
+        <div class="col" align="center">
+            <div class="col-25">
+                <label >Telefon</label>
+            </div>
+            <div class="col-75">
+                <label th:text="*{tour.hotel.getPhone()}"/>
+            </div>
+        </div>
+</div>
+    <div class="row">
+        <div class="col" align="center">
+            <div class="col-50">
+                <label >Opis hotelu</label>
+            </div>
+            <div class="col-50">
+                <label th:text="*{tour.hotel.getDescription()}"/>
+            </div>
+        </div>
+    </div>
+</div>
+-->
+<!--
+<br>
+<div th:text="${tour.hotel.getName()}">
+</div>
+<div th:text="${tour.hotel.getDescription()}">
+</div>
+<div th:text="${tour.hotel.getEmail()}">
+</div>
+</div>
+-->
+
+<br>
+<br>
+
+<h3 style="text-align: center">Rezerwacja</h3>
+<p style="text-align: center">Wypełnij formularz aby zarezerwować wyjazd</p>
+
+<div class="container">
+    <form method="post"  th:action="@{/addReservation}" th:object="${reservation}">
+
+        <div class="row">
+            <div class="col-25">
+                <label >Imię</label>
+            </div>
+            <div class="col-75">
+                <input type="text" placeholder="Podaj  imię.."  th:field="*{user.firstName}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label >Nazwisko</label>
+            </div>
+            <div class="col-75">
+                <input type="text" placeholder="Podaj nazwisko.."  th:field="*{user.lastName}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label >Email</label>
+            </div>
+            <div class="col-75">
+                <input type="text" placeholder="Podaj email.."  th:field="*{user.email}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label >Płeć</label>
+            </div>
+            <div class="col-75">
+                <input type="text" placeholder="Podaj płeć.."  th:field="*{user.userProfile.gender}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label >Data urodzenia</label>
+            </div>
+            <div class="col-75">
+                <input type="text" placeholder="Podaj datę urodzenia"  th:field="*{user.userProfile.dateOfBirth}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label >Kraj pochodzenia</label>
+            </div>
+            <div class="col-75">
+                <input type="text" placeholder="Podaj kraj.."  th:field="*{user.userProfile.country}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label >Województwo</label>
+            </div>
+            <div class="col-75">
+                <input type="text" placeholder="Podaj województwo.."  th:field="*{user.userProfile.state}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label >Miasto</label>
+            </div>
+            <div class="col-75">
+                <input type="text" placeholder="Podaj miasto.."  th:field="*{user.userProfile.city}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label >Ulica</label>
+            </div>
+            <div class="col-75">
+                <input type="text" placeholder="Podaj ulicę.."  th:field="*{user.userProfile.street}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label >Numer telefonu</label>
+            </div>
+            <div class="col-75">
+                <input type="text" placeholder="Podaj numer telefonu.."  th:field="*{user.userProfile.phoneNumber}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label >Kod pocztowy</label>
+            </div>
+            <div class="col-75">
+                <input type="text" placeholder="Podaj kod pocztowy.."  th:field="*{user.userProfile.zipCode}">
+            </div>
+        </div>
+
+        <div class="row">
+            <a type="submit"  th:href="@{'/admin/edit/' + ${tour.id}}" >Potwierdź zgłoszenie</a>
+        </div>
+
+
+    </form>
+</div>
+
+</body>
+</html>
+<!--
+        <div class="row">
+            <div class="col-25">
+                <label >Wyjazd od</label>
+            </div>
+            <div class="col-75">
+                <input type="text" placeholder="Wyjazd od.."  th:data="*{user.userProfile.get}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label >Powrót przed</label>
+            </div>
+            <div class="col-75">
+                <input type="text" placeholder="Powrót przed.." th:data="*{dateTo}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label >Cena</label>
+            </div>
+            <div class="col-75">
+                <input type="text" placeholder="Podaj cenę.."  th:field="*{price}">
+            </div>
+        </div>
+        <div class="row">
+            <a type="submit"  th:href="@{'/admin/edit/' + ${tour.id}}" >Potwierdź zgłoszenie</a>
+        </div>
+ <form th:action="@{/admin/add}" th:object="${tour}" method="post">
+ private String phoneNumber;
+private Gender gender;
+private Date dateOfBirth;
+private String address1;
+private String address2;
+private String street;
+private String city;
+private String state;
+private String country;
+private String zipCode;
+private String firstName;
+private String lastName;
+private String email;
+-->

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <link href="../static/style.css" th:href="@{/style.css}" rel="stylesheet" />
+    <title>Tour operator 1 !</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+        #second_header{
+            background-image: url("holiday-finally.jpg");
+            background-size: 100%;
+            background-position: center;
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+<body>
+<header id= "second_header" class="jumbotron text-left" style="margin-bottom:0" >
+    <h2 >
+        <a th:href="@{'/user'}" style="color: black"> Tour operator 1 </a>
+    </h2>
+</header>
+
+
+<br>
+
+<br>
+<div>
+    <h2 class="text-center" style="margin-bottom:0">Wyszukiwarka </h2>
+</div>
+<br>
+
+
+<!--
+
+<form  action="/tours" class="form-inline container">
+    <div class="form-group" >
+        <select>
+            <option th:each="tour:${tours}"
+                    th:value="${tour}"
+                    th:text="#{${tour.getCountry()}}"></option>
+        </select>
+    </div>
+    <input type="text" class="form-control" name="name" placeholder="Podaj datę wyjazdu...">
+    <a type="submit"  style="background: olivedrab" class="text-center">Szukaj</a>
+</form>
+
+
+
+
+<form action="/user" class="form-inline container">
+    <div class="form-group col-2">
+        <select  class="form-control">
+            <option value="niemowle">Tytuł</option>
+            <option value="2-lata">Kraj</option>
+            <option value="3-lata">Miejsce przylotu</option>
+            <option value="6-lata">Cena</option>
+        </select>
+    </div>
+    <input type="text" class="form-control" name="name" >
+    <div align="center" class="form-group " >
+        <input type="text" class="form-control" name="name" placeholder="Podaj datę wyjazdu...">
+        <input type="text" class="form-control" name="name" placeholder="Podaj datę powrotu...">
+    </div>
+        <a type="submit"  style="background: olivedrab" class="text-center">Szukaj</a>
+</form>
+<br>
+<br>
+<form  action="/user" class="form-inline container">
+    <div class="form-group" >
+        <select>
+            <option th:each="tour:${tours}"
+                    th:value="${tour}"
+                    th:text="#{${tour.getCountry()}}"></option>
+        </select>
+    </div>
+    <input type="text" class="form-control" name="name" placeholder="Podaj datę wyjazdu...">
+    <a type="submit"  style="background: olivedrab" class="text-center">Szukaj</a>
+</form>
+
+-->
+
+
+<!--
+      <div class="form-group">
+          <select  class="form-control" name="value">
+              <option value="title">Tytuł</option>
+              <option selected value="country">Kraj</option>
+              <option value="destination">Miejsce przylotu</option>
+              <option value="dateFrom">Data wyjazdu</option>
+              <option value="dateTo">Data powrotu</option>
+              <option value="price">Cena</option>
+          </select>
+      </div>
+
+-->
+
+<br>
+<br>
+
+<form action="/user/params"  align="center" >
+    <div class="form-group container" >
+
+        <input type="text" class="form-control" country="country" placeholder="Podaj kraj" name="country">
+
+        <input type="text" class="form-control" country="country" placeholder="Podaj miejsce przylotu" name="destinationCity">
+
+        <input type="date" class="form-control" country="country" placeholder="Data wyjazdu" name="dateFrom">
+
+        <input type="date" class="form-control" country="country" placeholder="Data powrotu" name="dateTo">
+
+
+        <input  type="submit" value="Szukaj" class="btn btn-primary" align="center">
+    </div>
+</form>
+
+<br>
+    <table class="table table-striped table-hover" >
+        <thead>
+        <tr>
+
+            <!--
+
+
+                    <td th:if="${#fields.hasErrors('dateTo')}" th:class="error">Name Error</td>
+
+             th:field=""*{}
+            <input type="text" class="form-control" country="country" placeholder="Cenia większa od" name="priceMore">
+ <input type="text" class="form-control" country="country" placeholder="Cena mniejsza od" name="priceLess">
+<input type="text" class="form-control" country="country" placeholder="Szukaj" name="search">
+-->
+
+
+
+ <!--
+ <th style="color: #45a049" scope="col">Numer</th>
+            <th style="color: #45a049" scope="col"></th>
+            -->
+            <th style="color: #45a049" scope="col">Tytul</th>
+            <th style="color: #45a049" scope="col">Kraj</th>
+            <th style="color: #45a049" scope="col">Miejsce przylotu</th>
+            <th style="color: #45a049" scope="col">Data wyjazdu</th>
+            <th style="color: #45a049" scope="col">Powrót przed</th>
+            <th style="color: #45a049" scope="col">Cena</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="tour: ${tours}">
+
+            <!--
+                  <th th:text="${tour.getId()}"></th>
+            <td> <img src= "favicon.ico" className="ui mini rounded image"  /></td>
+            -->
+            <td th:text="${tour.getTitle()}"></td>
+            <td th:text="${tour.getCountry()}"></td>
+            <td th:text="${tour.getDestinationCity()}"></td>
+            <td th:text="${tour.getDateFrom()}"></td>
+            <td th:text="${tour.dateTo}"></td>
+            <td th:text="${tour.getPrice()}"></td>
+            <td ></td>
+            <td ></td>
+            <td>
+                <a type="submit" th:href="@{'/user/offerdetails/' + ${tour.id}}" style="background: olivedrab">Szczegóły i rezerwacja</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
