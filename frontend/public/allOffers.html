@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Twoja strona o podróżach !</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+
+  <link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+  crossorigin="anonymous"
+/>
+  <style>
+      * {
+        box-sizing: border-box;
+      }
+      #myInput {
+        background-image: url('/css/searchicon.png');
+        background-position: 10px 12px;
+        background-repeat: no-repeat;
+        width: 40%;
+        font-size: 16px;
+        padding: 12px 20px 12px 40px;
+        border: 1px solid #ddd;
+        margin-bottom: 12px;
+
+      }
+      
+      #myUL {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      #myUL li a {
+        border: 1px solid #ddd;
+        margin-top: -1px; /* Prevent double borders */
+        background-color: #f6f6f6;
+        padding: 12px;
+        text-decoration: none;
+        font-size: 18px;
+        color: black;
+        display: block
+      }
+      
+      #myUL li a:hover:not(.header) {
+        background-color: #eee;
+      }
+      </style>
+
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm navbar-dark ownNav">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+      <ul class="navbar-nav">
+
+        <li>
+          <a class="navbar-brand" href="index.html">Twójpodróżnik.pl - strona główna</a>
+
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" href="oNas.html">O nas - kim jesteśmy ?</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="kontakt.html">Kontakt</a>
+        </li>
+         
+        </nav>
+      </ul>
+    </div>  
+  </nav>
+
+  <header id= "main_header" class="jumbotron text-center" style="margin-bottom:0">
+    <div id="title">
+      <h2>Twójpodróżnik.pl - strona główna</h2>
+      </div>
+      <div class="ownMainPart" style="padding: 50px; margin: 80px;"  >
+        <div class="row">
+          <div class="col">
+
+<!--
+          <h2 style="text-align: center">Wyszukiwarka prosta</h2>
+        <input type="text" id="myInput" onclick="myFunction()" placeholder="Podaj kraj.." title="Type in a name">
+        <button onclick="myFunction()" class="buttonA">Szukaj według kraju</button>
+          <br>
+      <br>
+-->
+    
+    <h2 style="text-align: center">Wyszukiwarka zaawansowana</h2>
+    <br>
+    
+    <input type="text" id="myInput" onclick="myFunction()" placeholder="Podaj kraj.." title="Type in a name">
+    <input type="text" id="myInput" onclick="myFunction()" placeholder="Podaj miejsce przylotu.." title="Type in a name">
+    <input type="date" id="myInput" onclick="myFunction()" placeholder="Data wyjazdu.." title="Type in a name">
+    <input type="date" id="myInput" onclick="myFunction()" placeholder="Data powrotu.." title="Type in a name">
+          </div>
+        </div> 
+        <button onclick="myFunction()" class="buttonA">Szukaj według parametrów</button>
+        <button class="buttonA" id="downloadALL" >Pobierz wszystko</button>
+        </div>
+      </header>
+
+<br>
+
+
+<div id="root"></div>
+
+
+<br>
+
+<footer class="cos" >
+
+    <p>&copy Wszelkie prawa zastrzeżone, 2019 <br /> Wykonane przez: Rafał Walasek
+    </p>
+</footer>
+
+
+
+<script>
+  document.getElementById("downloadALL").onclick = function () {
+      location.href="allOffers.html";
+  };
+</script>
+
+
+
+
+
+</body>
+</html>
+
+<!--
+
+
+  <script>
+
+
+
+
+
+
+
+    function myFunction() {
+      input = document.getElementById("myInput");
+      console.log(input);
+    }
+
+    function myFunction2() {
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+    </script>
+
+
+
+            <p>------------------------------------ </p>
+           <p>    {this.props.info.idBroker}</p>
+           <p>  {this.props.info.name}  </p>
+
+
+             <p>   {this.props.info.country}</p>
+           <p>    {this.props.info.price}</p>  
+              <p>    {this.props.info.touroperator}</p>
+-->

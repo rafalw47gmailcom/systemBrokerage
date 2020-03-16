@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Twoja strona o podróżach !</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+
+  <link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+  crossorigin="anonymous"
+/>
+  <style>
+      * {
+        box-sizing: border-box;
+      }
+      #myInput {
+        background-image: url('/css/searchicon.png');
+        background-position: 10px 12px;
+        background-repeat: no-repeat;
+        width: 40%;
+        font-size: 16px;
+        padding: 12px 20px 12px 40px;
+        border: 1px solid #ddd;
+        margin-bottom: 12px;
+
+      }
+      
+      #myUL {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      #myUL li a {
+        border: 1px solid #ddd;
+        margin-top: -1px; /* Prevent double borders */
+        background-color: #f6f6f6;
+        padding: 12px;
+        text-decoration: none;
+        font-size: 18px;
+        color: black;
+        display: block
+      }
+      
+      #myUL li a:hover:not(.header) {
+        background-color: #eee;
+      }
+      </style>
+
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm navbar-dark ownNav">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+      <ul class="navbar-nav">
+
+        <li>
+          <a class="navbar-brand" href="index.html">Twójpodróżnik.pl - strona główna</a>
+
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" href="oNas.html">O nas - kim jesteśmy ?</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="kontakt.html">Kontakt</a>
+        </li>
+         
+        </nav>
+      </ul>
+    </div>  
+  </nav>
+
+      <header id= "main_header" class="jumbotron text-center" style="margin-bottom:0">
+          <div id="title">
+            <h2>Twójpodróżnik.pl - strona główna</h2>
+            </div>
+            <div class="ownMainPart" style="padding: 50px; margin: 80px;"  >
+              <div class="row">
+                <div class="col">
+
+  <!--
+                <h2 style="text-align: center">Wyszukiwarka prosta</h2>
+              <input type="text" id="myInput" onclick="myFunction()" placeholder="Podaj kraj.." title="Type in a name">
+              <button onclick="myFunction()" class="buttonA">Szukaj według kraju</button>
+                <br>
+            <br>
+  -->
+          
+          <h2 style="text-align: center">Wyszukiwarka zaawansowana</h2>
+          <br>
+        
+          <input type="text" id="myInput" onclick="myFunction()" placeholder="Podaj kraj.." title="Type in a name">
+          <input type="text" id="myInput" onclick="myFunction()" placeholder="Podaj miejsce przylotu.." title="Type in a name">
+          <input type="date" id="myInput" onclick="myFunction()" placeholder="Data wyjazdu.." title="Type in a name">
+          <input type="date" id="myInput" onclick="myFunction()" placeholder="Data powrotu.." title="Type in a name">
+              </div>
+              </div> 
+              <button onclick="myFunction()" class="buttonA">Szukaj według parametrów</button>
+              <button class="buttonA" id="downloadALL" >Pobierz wszystko</button>
+              </div>
+            </header>
+ 
+<br>
+
+
+
+
+<div id="root"></div>
+
+<br>
+
+
+
+<footer class="cos" >
+
+    <p>&copy Wszelkie prawa zastrzeżone, 2019 <br /> Wykonane przez: Rafał Walasek
+    </p> 
+</footer>
+
+
+
+<script >
+  document.getElementById("downloadALL").onclick = function () {
+      location.href="allOffers.html";
+  };
+</script>
+
+
+
+
+</body>
+</html>
+
+
+<!--
+
+
+<script>
+    function myFunction() {
+      input = document.getElementById("myInput");
+      console.log(input);
+    }
+
+    function myFunction3() {
+      input = document.getElementById("downloadALL");
+      
+      console.log(input);
+    }
+
+
+    
+    function myFunction2() {
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+    </script>
+
+
+
+    
+
+
+  <div class="dropdown">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Wszyscy touroperatorzy
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="#">Touroperator1</a>
+    <a class="dropdown-item" href="#">Touroperator2</a>
+  </div>
+</div>
+
+<Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
+  <Tab eventKey="home" title="Home">
+    <Sonnet />
+  </Tab>
+  <Tab eventKey="profile" title="Profile">
+    <div id="root"></div>
+  </Tab>
+  <Tab eventKey="contact" title="Contact" disabled>
+    <Sonnet />
+  </Tab>
+</Tabs>
+
+
+<br>
+
+<form  style="max-width: 900px" >
+  <div class="form-row" >
+      <div class="form-group col-12">
+          <label for="inputEmail4">Kierunek</label>
+          <input type="text" name="s[kierunek]"/>
+      </div>
+  </div>
+  <div class="form-row">
+      <div class="form-group col-3">
+          <label for="inputCity">Dorośli:</label>
+          <input type="number" name="s[dorosli]" value="2" maxlength="1" min="1" max="6" class="form-control"/>
+      </div>
+      <div class="form-group col-2">
+          <label for="inputCity">Wiek dziecka:</label>
+          <select name="s[dzieci][0]"  class="form-control">
+              <option></option>
+              <option value="niemowle">Niemowle</option>
+              <option value="2-lata">2 lata</option>
+              <option value="3-lata">3 lata</option>
+              <option value="4-lata">4 lata</option>
+              <option value="5-lata">5 lat</option>
+              <option value="6-lata">6 lat</option>
+              <option value="7-lata">7 lat</option>
+              <option value="8-lata">8 lat</option>
+              <option value="9-lata">9 lat</option>
+              <option value="10-lata">10 lat</option>
+              <option value="11-lata">11 lat</option>
+              <option value="12-lata">12 lat</option>
+              <option value="13-lata">13 lat</option>
+              <option value="14-lata">14 lat</option>
+              <option value="15-lata">15 lat</option>
+              <option value="15-lata">16 lat</option>
+              <option value="15-lata">17 lat</option>
+          </select>
+      </div>
+      <div class="form-group col-2">
+          <label for="inputCity">Wiek dziecka:</label>
+          <select name="s[dzieci][1]"  class="form-control">
+              <option></option>
+              <option value="niemowle">Niemowle</option>
+              <option value="2-lata">2 lata</option>
+          </select>
+      </div>
+      <div class="form-group col-2">
+          <label for="inputCity">Wiek dziecka:</label>
+          <select name="s[dzieci][2]"  class="form-control">
+              <option></option>
+              <option value="niemowle">Niemowle</option>
+              <option value="2-lata">2 lata</option>
+          </select>
+      </div>
+      <div class="form-group col-2">
+          <label for="inputCity">Wiek dziecka:</label>
+          <select name="s[dzieci][3]"  class="form-control">
+              <option></option>
+              <option value="niemowle">Niemowle</option>
+              <option value="2-lata">2 lata</option>
+          </select>
+      </div>
+  </div>
+  <div class="form-row">
+      <div class="form-group col-6">
+          <label for="inputCity">Rodzaj wycieczki:</label>
+          <select name="s[typ]" class="form-control">
+              <option value=""></option>
+              <option value="wypoczynek">Wypoczynek</option>
+              <option value="wypoczynek-zwiedzanie">Wypoczynek + zwiedzanie</option>
+              <option value="rejs-wypoczynek">Rejs + wypoczynek</option>
+              <option value="wycieczki objazdowe">Wycieczki objazdowe</option>
+              <option value="rejs">Rejs</option>
+              <option value="kolonie-obozy">Kolonie i obozy młodzieżowe</option>
+              <option value="wyprawy">Wyprawy</option>
+              <option value="sylwester">Sylwester</option>
+              <option value="narty">Narty</option>
+              <option value="turystyka-eventowa">Turystyka eventowa</option>
+              <option value="city-break">City Break</option>
+              <option value="wycieczka-edukacyjna">Wycieczka edukacyjna</option>
+              <option value="fly-drive">Fly & Drive</option>
+              <option value="wypoczynek-dwa-hotele">Wypoczynek 7+7 (dwa hotele)</option>
+              <option value="wyjazd-slubny">Wyjazd ślubny</option>
+              <option value="travel-senior">Travel senior</option>
+              <option value="pielgrzymka">Pielgrzymka</option>
+              <option value="przelot">Sam przelot</option>
+              <option value="dojazd-wlasny">Dojazd własny</option>
+          </select>
+      </div>
+      <div class="form-group col-3">
+          <label for="inputState">Cena od</label>
+          <input type="number" name="s[cena_od]" placeholder="" min="0" class="form-control">
+
+      </div>
+      <div class="form-group col-3">
+          <label for="inputZip">Cena do</label>
+          <input type="number" name="s[cena_do]" placeholder="" min="0" class="form-control">
+      </div>
+  </div>
+  <div class="form-row">
+      <div class="form-group col-3">
+          <label for="inputState">Czas pobytu (od):</label>
+          <input type="text" name="s[do]" class="form-control" placeholder="od"/>
+      </div>
+      <div class="form-group col-3">
+          <label for="inputState">Czas pobytu (do):</label>
+          <input type="text" name="s[do]" placeholder="do"  class="form-control" /></div>
+      <div class="form-group col-6">
+          <label for="inputState">Wyżywienie:</label>
+          <select name="s[wyzywienie]" class="form-control">
+              <option value=""></option>
+              <option value="all-inclusive">All-inclusive</option>
+              <option value="fb">Śniadania, obiady i kolacje</option>
+              <option value="hb">Śniadania i obiadokolacje</option>
+              <option value="bb">Śniadania</option>
+              <option value="wlasne">Własne wyżywienie</option>
+              <option value="wedlug-programu">Zgodnie z programem</option>
+              <option value="obiad">Obiad</option>
+          </select>
+      </div>
+  </div>
+  <div class="form-row">
+      <div class="form-group col-3">
+          <label for="inputState">Standard od:</label>
+          <input type="number" min="0" max="55" name="s[standard_od]" placeholder="od" class="form-control">
+      </div>
+      <div class="form-group col-3">
+          <label for="inputState">Standard od:</label>
+          <input type="number" min="0" max="55" name="s[standard_do]" placeholder="do" class="form-control">
+      </div>
+      <div class="form-group col-3">
+          <label for="inputState">Opinie min:</label>
+          <input type="number" min="0" max="6" name="s[opinie_od]" placeholder="od" class="form-control">
+      </div>
+      <div class="form-group col-3">
+          <label for="inputState">Opinie max:</label>
+          <input type="number" min="0" max="6" name="s[opinie_do]" placeholder="do" class="form-control">
+      </div>
+  </div>
+
+  <div class="form-group row">
+      <div class="col-12 text-right">
+          <button class="btn btn-primary" type="submit" style="font-size: 1.8rem;">Wyszukaj</button>
+      </div>
+  </div>
+
+</form> 
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Lista</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Karty</a>
+  </li>
+
+</ul>
+-->
+
+
+
+
+
+<!--
+  <ul id="myUL">
+<li><a href="#" >Alpy</a></li>    <li><a href="#">Szanghaj</a></li>
+
+<li><a href="#">Barcelona</a></li>
+<li><a href="#">Nevada</a></li>
+
+<li><a href="#">Caracas</a></li>
+<li><a href="#">Mahajanga</a></li>
+<li><a href="#">Nairobi</a></li>
+</ul>
+
+
+
+<script>
+fetch("localhost:8080/api/tours/all")
+    .then(resp => {
+        console.log(resp);
+    })
+</script>
+-->
+
+
+
+
+
+<!--
+            <p>------------------------------------ </p>
+           <p>    {this.props.info.idBroker}</p>
+           <p>  {this.props.info.name}  </p>
+
+
+             <p>   {this.props.info.country}</p>
+           <p>    {this.props.info.price}</p>  
+              <p>    {this.props.info.touroperator}</p>
+-->
