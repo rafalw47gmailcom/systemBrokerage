@@ -12,15 +12,25 @@ import java.util.logging.Logger;
 
 @Service
 public class TourService {
-
-    protected static final Logger log = Logger.getLogger(String.valueOf(TourService.class));
-
     private TourRepo tourRepo;
-
     @Autowired
     public TourService(TourRepo tourRepo) {
         this.tourRepo = tourRepo;
     }
+    public List<Tour> findAllByCountryAndDestinationCityAndDateFromAndDateTo( String country,
+                                                                              String destinationCity,
+                                                                              LocalDate dateFrom,
+                                                                              LocalDate dateTo){
+        return tourRepo.findAllByCountryAndDestinationCityAndDateFromAndDateTo(
+                country,
+                destinationCity,
+                dateFrom,
+                dateTo);
+    }
+
+
+
+    protected static final Logger log = Logger.getLogger(String.valueOf(TourService.class));
 
     public Iterable<Tour> findAll(){
      //   log.info("Start downloading tour offers");
@@ -28,9 +38,6 @@ public class TourService {
     }
 
 
-    public List<Tour> findAllByCountryAndDestinationCityAndDateFromAndDateTo( String country,String destinationCity,LocalDate dateFrom,LocalDate dateTo){
-        return tourRepo.findAllByCountryAndDestinationCityAndDateFromAndDateTo(country,destinationCity, dateFrom, dateTo);
-    }
 
     public Optional<Tour> findById(Long id){
         return tourRepo.findById(id);

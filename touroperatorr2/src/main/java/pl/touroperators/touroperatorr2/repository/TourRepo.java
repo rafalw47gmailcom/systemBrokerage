@@ -11,7 +11,10 @@ import java.util.List;
 @Repository
 public interface TourRepo extends JpaRepository<Tour,Long> {
 
-    List<Tour> findAllByCountryAndDestinationCityAndDateFromAndDateTo(String country, String destinationCity, LocalDate dateFrom, LocalDate dateTo);
+    List<Tour> findAllByCountryAndDestinationCityAndDateFromAndDateTo(String country,
+                                                                      String destinationCity,
+                                                                      LocalDate dateFrom,
+                                                                      LocalDate dateTo);
 
 
     Iterable<Tour>  findAllByCountry(String country);

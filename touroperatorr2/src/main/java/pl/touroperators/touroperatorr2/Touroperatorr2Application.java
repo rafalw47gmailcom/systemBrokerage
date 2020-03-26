@@ -21,7 +21,7 @@ public class Touroperatorr2Application {
         log.info(" ");
         log.info("http://localhost:8081/api/tours/all" + "  - endpointy dla systemu pośrednictwa");
         log.info(" ");
-        log.info("http://localhost:8081/console" + "  - konsola bazy dancyh");
+        log.info("http://localhost:8081/console2" + "  - konsola bazy dancyh");
         log.info(" ");
         log.info("Dodatkowe");
         log.info("http://localhost:8081/api/numbers");

@@ -100,7 +100,6 @@ public class TourResource {
     }
 
 
-
     @GetMapping(path ="/reservation2" , consumes = "application/json", produces = "application/json")
     public ReservationExternal reservateTour2(@RequestBody ReservationExternal reservationExternal){
 
@@ -116,14 +115,12 @@ public class TourResource {
 
 
 /*
-
     @GetMapping("/reservationlist/all")
     public List<Reservation> getReservations(){
         List<Reservation> reservations = reservationService.findAll();
 
         return reservations;
     }
-
     @GetMapping("/example")
     public ReservationExternal example(){
         List<Reservation> reservations = reservationService.findAll();
@@ -132,7 +129,6 @@ public class TourResource {
 
         System.out.println(reservationExternal);
         return reservationExternal;
-
     }
 
     @GetMapping("/tours/search/byCity")
@@ -158,7 +154,5 @@ public class TourResource {
         return tourService.findAllByDepartureFrom(destinationCity);
     }
  */
-
-
 
 }

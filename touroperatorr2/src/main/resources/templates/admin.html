@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <link href="../static/style.css" th:href="@{/style.css}" rel="stylesheet" />
+    <link href="../static/style.css" th:href="@{style.css}" rel="stylesheet" />
     <title>Tour operator 2</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -83,9 +83,6 @@
         <thead>
         <tr>
             <th style="color: darkred" type="tour" scope="col" >Numer</th>
-            <!--
-                        <th style="color: #45a049"scope="col"></th>
-            -->
             <th style="color: darkred"scope="col">Tytul</th>
             <th style="color: darkred"scope="col">Kraj</th>
             <th style="color: darkred"scope="col">Miejsce przylotu</th>
@@ -100,9 +97,6 @@
         <tbody >
         <tr th:each="tour: ${tours}">
             <th th:text="${tour.getId()}"></th>
-            <!--
-                    <td> <img src= "favicon.ico" className="ui mini rounded image"  /></td>
-            -->
             <td th:text="${tour.getTitle()}"></td>
             <td th:text="${tour.getCountry()}"></td>
             <td th:text="${tour.getDestinationCity()}"></td>

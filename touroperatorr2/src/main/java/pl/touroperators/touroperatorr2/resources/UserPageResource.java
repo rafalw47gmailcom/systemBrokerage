@@ -46,19 +46,6 @@ public class UserPageResource {
         return "/userPages/homepage";
     }
 
-/*
-
-    @PostMapping("/checkParams")
-    public String checkTourSearchInfo(@Valid Tour tour, BindingResult bindingResult) {
-
-        if (bindingResult.hasErrors()) {
-            return "/userPages/homepage";
-        }
-
-        return "redirect:/params";
-    }
- */
-
     @GetMapping("/offerdetails/{id}")
     public ModelAndView getOfferDetails(@PathVariable(name = "id") Long id){
         ModelAndView modelAndView = new ModelAndView("/userPages/detailsUser");
@@ -69,23 +56,3 @@ public class UserPageResource {
         return modelAndView;
     }
 }
-
-    /*
-            switch (value){
-            case "title":
-                 tours = tourService.findAllByTitleLike(search);
-            case "destination":
-                 tours = tourService.findAllByDestinationCityLike(search);
-            case "dateFrom":
-                LocalDate searchDate = LocalDate.parse(search);
-                 tours = tourService.findAllByDateFromLike(searchDate);
-            case "dateTo":
-                LocalDate searchDate2 = LocalDate.parse(search);
-                tours = tourService.findAllByDateToLike(searchDate2);
-            case "price":
-                int searchPrice = Integer.parseInt(search);
-                tours = tourService.findAllByPriceLike(searchPrice);
-            default:
-                tours = tourService.findAllByCountryLike(search);
-        }
-     */

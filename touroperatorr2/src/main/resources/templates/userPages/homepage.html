@@ -38,6 +38,89 @@
 <br>
 
 
+
+
+<br>
+<br>
+
+<form action="/user/params"  align="center" >
+    <div class="form-group container" >
+
+        <input type="text" class="form-control" country="country" placeholder="Podaj kraj" name="country">
+
+        <input type="text" class="form-control" country="country" placeholder="Podaj miejsce przylotu" name="destinationCity">
+
+        <input type="date" class="form-control" country="country" placeholder="Data wyjazdu" name="dateFrom">
+
+        <input type="date" class="form-control" country="country" placeholder="Data powrotu" name="dateTo">
+
+
+        <input  type="submit" value="Szukaj" class="btn btn-primary" align="center">
+    </div>
+</form>
+
+<br>
+<table class="table table-striped table-hover" >
+    <thead>
+    <tr>
+        <th style="color: darkred" scope="col">Tytul</th>
+        <th style="color: darkred" scope="col">Kraj</th>
+        <th style="color: darkred" scope="col">Miejsce przylotu</th>
+        <th style="color: darkred" scope="col">Data wyjazdu</th>
+        <th style="color: darkred" scope="col">Powrót przed</th>
+        <th style="color: darkred" scope="col">Cena</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="tour: ${tours}">
+        <td th:text="${tour.getTitle()}"></td>
+        <td th:text="${tour.getCountry()}"></td>
+        <td th:text="${tour.getDestinationCity()}"></td>
+        <td th:text="${tour.getDateFrom()}"></td>
+        <td th:text="${tour.dateTo}"></td>
+        <td th:text="${tour.getPrice()}"></td>
+        <td ></td>
+        <td ></td>
+        <td>
+         <a type="submit" th:href="@{'/user/offerdetails/'
+             + ${tour.id}}" style="background: indianred">
+            Szczegóły i rezerwacja
+         </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
+
+
+
+
+
+
+
+
+<!--
+
+
+        <td th:if="${#fields.hasErrors('dateTo')}" th:class="error">Name Error</td>
+
+ th:field=""*{}
+<input type="text" class="form-control" country="country" placeholder="Cenia większa od" name="priceMore">
+<input type="text" class="form-control" country="country" placeholder="Cena mniejsza od" name="priceLess">
+<input type="text" class="form-control" country="country" placeholder="Szukaj" name="search">
+-->
+
+
+
+<!--
+<th style="color: #45a049" scope="col">Numer</th>
+           <th style="color: #45a049" scope="col"></th>
+           -->
+
 <!--
 
 <form  action="/tours" class="form-inline container">
@@ -101,79 +184,3 @@
       </div>
 
 -->
-
-<br>
-<br>
-
-<form action="/user/params"  align="center" >
-    <div class="form-group container" >
-
-        <input type="text" class="form-control" country="country" placeholder="Podaj kraj" name="country">
-
-        <input type="text" class="form-control" country="country" placeholder="Podaj miejsce przylotu" name="destinationCity">
-
-        <input type="date" class="form-control" country="country" placeholder="Data wyjazdu" name="dateFrom">
-
-        <input type="date" class="form-control" country="country" placeholder="Data powrotu" name="dateTo">
-
-
-        <input  type="submit" value="Szukaj" class="btn btn-primary" align="center">
-    </div>
-</form>
-
-<br>
-<table class="table table-striped table-hover" >
-    <thead>
-    <tr>
-
-        <!--
-
-
-                <td th:if="${#fields.hasErrors('dateTo')}" th:class="error">Name Error</td>
-
-         th:field=""*{}
-        <input type="text" class="form-control" country="country" placeholder="Cenia większa od" name="priceMore">
-<input type="text" class="form-control" country="country" placeholder="Cena mniejsza od" name="priceLess">
-<input type="text" class="form-control" country="country" placeholder="Szukaj" name="search">
--->
-
-
-
-        <!--
-        <th style="color: #45a049" scope="col">Numer</th>
-                   <th style="color: #45a049" scope="col"></th>
-                   -->
-        <th style="color: darkred" scope="col">Tytul</th>
-        <th style="color: darkred" scope="col">Kraj</th>
-        <th style="color: darkred" scope="col">Miejsce przylotu</th>
-        <th style="color: darkred" scope="col">Data wyjazdu</th>
-        <th style="color: darkred" scope="col">Powrót przed</th>
-        <th style="color: darkred" scope="col">Cena</th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="tour: ${tours}">
-
-        <!--
-              <th th:text="${tour.getId()}"></th>
-        <td> <img src= "favicon.ico" className="ui mini rounded image"  /></td>
-        -->
-        <td th:text="${tour.getTitle()}"></td>
-        <td th:text="${tour.getCountry()}"></td>
-        <td th:text="${tour.getDestinationCity()}"></td>
-        <td th:text="${tour.getDateFrom()}"></td>
-        <td th:text="${tour.dateTo}"></td>
-        <td th:text="${tour.getPrice()}"></td>
-        <td ></td>
-        <td ></td>
-        <td>
-            <a type="submit" th:href="@{'/user/offerdetails/' + ${tour.id}}" style="background: indianred">Szczegóły i rezerwacja</a>
-        </td>
-    </tr>
-    </tbody>
-</table>
-</body>
-</html>

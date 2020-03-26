@@ -49,23 +49,24 @@ public class DataLoader {
 
         Tour tour = new Tour(1L, "Wyjazd na Malediwy", LocalDate.of(2020,2 , 12),LocalDate.of(2020, 2, 17), 2000, "Honollu", "Koszalin", "Polska",hotel);
         tourService.save(tour);
-        tourService.save(new Tour(2L, "Wyjazd na Madagaskar",LocalDate.of(2020, 5, 15), LocalDate.of(2020, 5, 22), 3000, "Antananarivo", "Koszalin", "Madagaskar",hotel1));
-        tourService.save(new Tour(3L, "Wyjazd do Niemiec",LocalDate.of(2020, 6, 11), LocalDate.of(2020, 6, 18), 4500, "Madryt", "Koszalin", "Niemcy",hotel2));
-        tourService.save(new Tour(4L, "Wyjazd na Litwe",LocalDate.of(2020, 12, 6), LocalDate.of(2020, 12, 11), 1200, "Madryt", "Poznan", "Litwa",hotel3));
-        tourService.save(new Tour(5L, "Wyjazd do Hiszpanii",LocalDate.of(2020, 11, 21), LocalDate.of(2020, 1, 28), 1100, "Madryt", "Warszawa", "Ukraina",hotel4));
+        tourService.save(new Tour(2L, "Wyjazd do Hiszpanii",LocalDate.of(2020, 3, 21), LocalDate.of(2020, 4, 1), 1100, "Madryt", "Warszawa", "Hiszpania",hotel4));
+         tourService.save(new Tour(3L, "Wyjazd na Madagaskar",LocalDate.of(2020, 5, 15), LocalDate.of(2020, 5, 22), 3000, "Antananarivo", "Koszalin", "Madagaskar",hotel1));
+        tourService.save(new Tour(4L, "Wyjazd do Niemiec",LocalDate.of(2020, 6, 11), LocalDate.of(2020, 6, 18), 4500, "Madryt", "Koszalin", "Niemcy",hotel2));
+        tourService.save(new Tour(5L, "Wyjazd na Litwe",LocalDate.of(2020, 12, 6), LocalDate.of(2020, 12, 11), 1200, "Madryt", "Poznan", "Litwa",hotel3));
+
 
        // User user = new User(1L,"Rafal","jakis","rafal@wp.pl");
 
 
 
        Reservation reservation = new Reservation(1L, "Rafal","Jakis", "asdas@o2.pl");
-        System.out.println("loader: " + reservation);
+      //  System.out.println("loader: " + reservation);
 
        reservation=  CopyTool.copyTourData(reservation, tour);
 
 
       //  System.out.println("Rezerwacja w bazie: ");
-        System.out.println("po uruchomieniu: " + reservation);
+    //    System.out.println("po uruchomieniu: " + reservation);
 
       reservationService.save(reservation);
 
