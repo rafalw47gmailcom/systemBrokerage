@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <link href="styles.css" th:href="@{/styles.css}" rel="stylesheet" />
+    <title>Twoja strona o podróżach !</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        #myUL {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        /*
+                #second_header{
+                    background-image: url("holiday-finally.jpg");
+                    background-size: 100%;
+                    background-position: center;
+                    padding: 20px;
+                    height: 900px;
+                    text-align: center; }
+         */
+        header{
+            background-image: url("holiday-finally.jpg");
+            background-size: 100%;
+            background-position: center;
+            padding: 20px;
+            height: 700px;
+            text-align: center;
+        }
+        #myUL li a {
+            border: 1px solid #ddd;
+            margin-top: -1px; /* Prevent double borders */
+            background-color: #f6f6f6;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 18px;
+            color: black;
+            display: block
+        }
+
+        #myUL li a:hover:not(.header) {
+            background-color: #eee;
+        }
+    </style>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-sm navbar-dark ownNav">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li>
+                <a class="navbar-brand" th:href="@{'/home'}">Twójpodróżnik.pl - strona główna</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{'/aboutUs'}">O nas - kim jesteśmy ?</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{'/contact'}">Kontakt</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<header id= "second_header" class="jumbotron text-center" style="margin-bottom:0">
+
+    <div id="title">
+        <h2>Twójpodróżnik.pl - strona główna</h2>
+    </div>
+
+    <div class="ownMainPart" style="padding: 50px; margin: 80px;"  >
+        <div class="row">
+            <div class="col">
+                <h2 style="text-align: center">Wyszukiwarka</h2>
+                <br>
+                <form action="/searchByParams"  align="center" >
+                    <div class="form-group container" >
+                        <input type="text" class="form-control" country="country" placeholder="Podaj kraj" name="country">
+                        <input type="text" class="form-control" country="country" placeholder="Podaj miejsce przylotu" name="destinationCity">
+                        <input type="date" class="form-control" country="country" placeholder="Data wyjazdu" name="dateFrom">
+                        <input type="date" class="form-control" country="country" placeholder="Data powrotu" name="dateTo">
+                        <input type="submit" value="Szukaj według parametrów" class="buttonA btn btn-primary" align="center">
+                    </div>
+                </form>
+                <form action="/allOffers"  align="center" >
+                    <input type="submit" value="Pobierz wszystko" class="buttonA btn btn-primary" align="center">
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+
+<br>
+
+
+<table class="table table-striped table-hover" >
+    <thead>
+    <tr>
+        <th style="color: rgb(38, 47, 75)" scope="col">Tytul</th>
+        <th style="color: rgb(38, 47, 75)" scope="col">Kraj</th>
+        <th style="color: rgb(38, 47, 75)" scope="col">Miejsce przylotu</th>
+        <th style="color: rgb(38, 47, 75)" scope="col">Data wyjazdu</th>
+        <th style="color: rgb(38, 47, 75)" scope="col">Powrót przed</th>
+        <th style="color: rgb(38, 47, 75)" scope="col">Cena</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <!--/*@thymesVar id="searchedTours" type=""*/-->
+    <tr th:each="tour: ${searchedTours}">
+
+        <!--
+              <th th:text="${tour.getId()}"></th>
+        <td> <img src= "favicon.ico" className="ui mini rounded image"  /></td>
+        -->
+        <td th:text="${tour.getTitle()}"></td>
+        <td th:text="${tour.getCountry()}"></td>
+        <td th:text="${tour.getDestinationCity()}"></td>
+        <td th:text="${tour.getDateFrom()}"></td>
+        <td th:text="${tour.dateTo}"></td>
+        <td th:text="${tour.getPrice()}"></td>
+        <td ></td>
+        <td ></td>
+        <td>
+            <a type="submit" th:href="@{'/user/offerdetails/' + ${tour.id}}" style="background: indianred">Szczegóły i rezerwacja</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+<br>
+<footer class="cos" >
+
+    <p>&copy Wszelkie prawa zastrzeżone, 2019 <br />
+    </p>
+</footer>
+
+</body>
+</html>
+
+<!--
+                <input type="text" type="myInput" onclick="myFunction()" placeholder="Podaj kraj.." title="Type in a name">
+                <input type="text" type = "myInput" onclick="myFunction()" placeholder="Podaj miejsce przylotu.." title="Type in a name">
+                <input type="date" type="myInput" onclick="myFunction()" placeholder="Data wyjazdu.." title="Type in a name">
+                <input type="date" type="myInput" onclick="myFunction()" placeholder="Data powrotu.." title="Type in a name">
+-->
+
+
+

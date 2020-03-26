@@ -1,18 +1,46 @@
 package pl.brokeridge.system_supporting_brokeridge.search;
 
-public class Searcher {
+import pl.brokeridge.system_supporting_brokeridge.aggregation.Touroperator;
 
+public class Searcher {
     private String urlWithParams;
     private String urlWithParams2;
     private String  brokeridgeUrl;
 
-    public Searcher(String country, String destinationCity, String dateFrom, String dateTo, String url, String url2) {
+    public Searcher(String country,
+                    String destinationCity,
+                    String dateFrom,
+                    String dateTo,
+                    Touroperator touroperator,
+                    Touroperator touroperatorSecond) {
 
-        urlWithParams = url + "?country=" + country + "&destinationCity=" + destinationCity + "&dateFrom=" + dateFrom + "&dateTo=" + dateTo;
-        urlWithParams2 = url2 + "?country=" + country + "&destinationCity=" + destinationCity + "&dateFrom=" + dateFrom + "&dateTo=" + dateTo;
-
-        brokeridgeUrl = "http://localhost:8083/brokerapi/tours/searchByParams" + "?country=" + country + "&destinationCity=" + destinationCity + "&dateFrom=" + dateFrom + "&dateTo=" + dateTo;
-
+        urlWithParams = touroperator.getUrlParams()
+                + "?country="
+                + country
+                + "&destinationCity="
+                + destinationCity
+                + "&dateFrom="
+                + dateFrom
+                + "&dateTo="
+                + dateTo;
+        urlWithParams2 = touroperatorSecond.getUrlParams()
+                + "?country="
+                + country
+                + "&destinationCity="
+                + destinationCity
+                + "&dateFrom="
+                + dateFrom
+                + "&dateTo="
+                + dateTo;
+        brokeridgeUrl = "http://localhost:8082/brokerapi/tours/searchByParams"
+                + "?country="
+                + country
+                + "&destinationCity="
+                + destinationCity
+                + "&dateFrom="
+                + dateFrom
+                + "&dateTo="
+                + dateTo;
     }
 
     public String getUrlWithParams() {

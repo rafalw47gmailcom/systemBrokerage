@@ -5,6 +5,9 @@ import com.google.gson.annotations.SerializedName;
 import pl.brokeridge.system_supporting_brokeridge.aggregation.Touroperator;
 
 public class Tour {
+    @SerializedName("brokerId")
+    @Expose
+    private Long brokerId;
     @SerializedName("id")
     @Expose
     private Integer id;
@@ -97,6 +100,13 @@ public class Tour {
         this.country = country;
     }
 
+    public Long getBrokerId() {
+        return brokerId;
+    }
+
+    public void setBrokerId(Long brokerId) {
+        this.brokerId = brokerId;
+    }
 
     public Touroperator getTouroperator() {
         return touroperator;
